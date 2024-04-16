@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxm3yu26svi3f"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_dbhyw"]
+[ext_resource type="Texture2D" uid="uid://fny6apq57fyq" path="res://sprites/MainGuySpriteSheet.png" id="1_hy08h"]
+
+[sub_resource type="Animation" id="Animation_wqlrp"]
+resource_name = "walkdown"
+step = 0.2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhdcr"]
+_data = {
+"walkdown": SubResource("Animation_wqlrp")
+}
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_dbhyw")
+speed = 375
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(956.25, 517.5)
+scale = Vector2(1.72581, 1.58333)
+texture = ExtResource("1_hy08h")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uhdcr")
+}
